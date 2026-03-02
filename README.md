@@ -18,7 +18,7 @@ Website buat ngelola semua hal yang berhubungan sama Lab HCI Unpad - dari peneli
 - Dataset - dataset penelitian
 - Reservation - booking fasilitas
 - Collaboration - info kerjasama
-- Contact - kontak & lokasi
+- Contact - kontak & lokasii
 
 ### Login
 - Bisa daftar manual atau login pake Google
