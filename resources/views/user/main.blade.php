@@ -170,6 +170,16 @@
             font-weight: 600;
             font-size: 14px;
         }
+        
+        /* Mobile Hero Fix */
+        @media (max-width: 768px) {
+            .hero-section,
+            .hero-section-small {
+                background-attachment: scroll;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
     </style>
     
     @yield('styles')
