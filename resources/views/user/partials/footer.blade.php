@@ -4,7 +4,6 @@
             <!-- Lab Info -->
             <div class="col-lg-4 col-md-6">
                 <div class="mb-4">
-                    <img src="{{ asset('assets/img/logo/logo_labhci.png') }}" alt="Lab HCI" height="50" class="mb-3">
                     <h5 class="mb-3" style="font-family: 'Playfair Display', serif;">Lab HCI</h5>
                     <p class="mb-3" style="font-family: 'DM Sans', sans-serif; opacity: 0.9;">Human-Computer Interaction Laboratory<br>Universitas Padjadjaran</p>
                     <p class="mb-4" style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem; opacity: 0.8;">Pusat riset dan inovasi teknologi interaktif berbasis AR/VR untuk kemajuan pendidikan dan industri.</p>
@@ -20,6 +19,11 @@
                         <a href="#" class="text-white" style="font-size: 1.5rem; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="text-white" style="font-size: 1.5rem; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"><i class="fab fa-youtube"></i></a>
                     </div>
+                </div>
+                
+                <!-- Logo -->
+                <div class="mt-4">
+                    <img src="{{ asset('assets/img/logo/logo_labhci.png') }}" alt="Lab HCI" style="height: 250px; width: auto; object-fit: contain; margin-left: -100px;">
                 </div>
             </div>
             
