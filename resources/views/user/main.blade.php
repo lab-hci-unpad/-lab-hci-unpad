@@ -86,6 +86,15 @@
             margin-bottom: 0;
         }
         
+        @media (max-width: 768px) {
+            .hero-section {
+                background: url('{{ asset('assets/img/hero/hero-mobile.png') }}');
+                background-size: cover;
+                background-position: center;
+                background-attachment: scroll;
+            }
+        }
+        
         /* Custom Styles */
         body {
             font-family: 'DM Sans', sans-serif;
