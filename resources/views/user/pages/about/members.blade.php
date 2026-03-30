@@ -27,10 +27,10 @@
                     <div class="row g-4">
                         @php
                         $currentMembers = [
-                            ['name' => 'Mira Suryani, S.Pd., M.Kom', 'position' => 'Kepala Lab HCI', 'photo' => 'member1.jpg'],
-                            ['name' => 'Erick Paulus, S.Si., M.Kom', 'position' => 'Dosen', 'photo' => 'member2.jpg'],
-                            ['name' => 'Hasna Karimah, S.Kom., MT.', 'position' => 'Dosen', 'photo' => 'member3.jpg'],
-                            ['name' => 'Firas Atqiya, S.Kom., M.Si., M.Sc', 'position' => 'Dosen', 'photo' => 'member4.jpg']
+                            ['name' => 'Dr. Mira Suryani, S.Pd., M.Kom', 'position' => 'Kepala Lab HCI', 'photo' => 'Mira Suryani.jpg'],
+                            ['name' => 'Erick Paulus, S.Si., M.Kom', 'position' => 'Dosen', 'photo' => 'Erick Paulus.png'],
+                            ['name' => 'Hasna Karimah, S.Kom., MT.', 'position' => 'Dosen', 'photo' => 'Hasna Karimah.jpg'],
+                            ['name' => 'Firas Atqiya, S.Kom., M.Si., M.Sc', 'position' => 'Dosen', 'photo' => 'Firas Atqiya.jpg']
                         ];
                         @endphp
                         
@@ -38,7 +38,7 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="text-center">
                                 <div class="mb-3">
-                                    <img src="{{ asset('assets/img/members/' . $member['photo']) }}" alt="{{ $member['name'] }}" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #841818;">
+                                    <img src="{{ asset('assets/img/anggota/' . $member['photo']) }}" alt="{{ $member['name'] }}" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #841818;">
                                 </div>
                                 <h6 class="mb-2">{{ $member['name'] }}</h6>
                                 <p class="text-primary-custom mb-0" style="font-weight: 500;">{{ $member['position'] }}</p>
@@ -56,10 +56,10 @@
                     <div class="row g-4">
                         @php
                         $activeStudents = [
-                            ['name' => 'Ardes Zubka Putra', 'desc' => 'Fokus penelitian: Augmented Reality untuk Pembelajaran', 'photo' => 'student1.jpg'],
-                            ['name' => 'Amir Salim', 'desc' => 'Fokus penelitian: User Experience Design', 'photo' => 'student2.jpg'],
-                            ['name' => 'Hudzaifah Al Mutaz Billah', 'desc' => 'Fokus penelitian: Virtual Reality Applications', 'photo' => 'student3.jpg'],
-                            ['name' => 'Prames Ray Lapian', 'desc' => 'Fokus penelitian: Human-Computer Interaction', 'photo' => 'student4.jpg']
+                            ['name' => 'Ardes Zubka Putra', 'desc' => 'Fokus penelitian: Augmented Reality untuk Pembelajaran', 'photo' => 'Ardes Zubka Putra.jpg'],
+                            ['name' => 'Amir Salim', 'desc' => 'Fokus penelitian: User Experience Design', 'photo' => 'Amir Salim.jpg'],
+                            ['name' => 'Hudzaifah Al Mutaz Billah', 'desc' => 'Fokus penelitian: Virtual Reality Applications', 'photo' => 'Hudzaifah Al Mutaz Billah.jpg'],
+                            ['name' => 'Prames Ray Lapian', 'desc' => 'Fokus penelitian: Human-Computer Interaction', 'photo' => 'Prames Ray Lapian.jpg']
                         ];
                         @endphp
                         
@@ -67,7 +67,14 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="text-center">
                                 <div class="mb-3">
-                                    <img src="{{ asset('assets/img/members/' . $student['photo']) }}" alt="{{ $student['name'] }}" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #841818;">
+                                    @php $studentPhotoPath = public_path('assets/img/anggota/' . $student['photo']); @endphp
+                                    @if(file_exists($studentPhotoPath))
+                                    <img src="{{ asset('assets/img/anggota/' . $student['photo']) }}" alt="{{ $student['name'] }}" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #841818;">
+                                    @else
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 100px; height: 100px; background-color: #f0e6e6; border: 2px solid #841818;">
+                                        <i class="fas fa-user" style="font-size: 2.5rem; color: #841818;"></i>
+                                    </div>
+                                    @endif
                                 </div>
                                 <h6 class="mb-2">{{ $student['name'] }}</h6>
                                 <p class="text-muted mb-0" style="font-size: 0.85rem;">{{ $student['desc'] }}</p>
