@@ -19,33 +19,9 @@
     margin-bottom: 0;
 }
 
-.image-preview {
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-    background: #f8f9fa;
-    transition: all 0.3s ease;
-}
-
-.image-preview:hover {
-    border-color: var(--primary-color);
-    background: rgba(132, 24, 24, 0.05);
-}
-
-.image-preview.dragover {
-    border-color: var(--primary-color);
-    background: rgba(132, 24, 24, 0.1);
-}
-
 .form-control:focus, .form-select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(132, 24, 24, 0.25);
-}
-
-.btn-group-toggle .btn {
-    border-radius: 8px !important;
-    margin: 0 0.25rem;
 }
 
 .progress-steps {
@@ -259,18 +235,14 @@
                     
                     <div class="mb-4">
                         <label for="image" class="form-label fw-semibold">Screenshot/Gambar Project</label>
-                        <div class="image-preview" id="imagePreview">
-                            <i class="fas fa-cloud-upload-alt text-muted mb-2" style="font-size: 2rem;"></i>
-                            <p class="text-muted mb-2">Drag & drop gambar atau klik untuk browse</p>
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" style="display: none;">
-                            <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('image').click()">
-                                <i class="fas fa-folder-open me-2"></i>Pilih Gambar
-                            </button>
-                            <small class="d-block text-muted mt-2">Format: JPG, PNG, GIF (Max: 2MB)</small>
-                        </div>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*">
+                        <small class="text-muted">Format: JPG, PNG, GIF (Max: 2MB)</small>
                         @error('image')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <div id="imagePreview" class="mt-3" style="display: none;">
+                            <img id="previewImg" src="" class="img-fluid rounded" style="max-height: 200px;">
+                        </div>
                     </div>
 
                     <div class="row">
@@ -357,67 +329,25 @@
 
 @section('scripts')
 <script>
-// Image preview functionality
-document.getElementById('image').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
+const imageInput = document.getElementById('image');
+const imagePreview = document.getElementById('imagePreview');
+const previewImg = document.getElementById('previewImg');
+
+imageInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            const preview = document.getElementById('imagePreview');
-            preview.innerHTML = `
-                <img src="${e.target.result}" class="img-fluid rounded mb-2" style="max-height: 200px;">
-                <p class="text-success mb-2"><i class="fas fa-check-circle me-1"></i>Gambar berhasil dipilih</p>
-                <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeImage()">
-                    <i class="fas fa-trash me-1"></i>Hapus
-                </button>
-            `;
+            previewImg.src = e.target.result;
+            imagePreview.style.display = 'block';
         };
-        reader.readAsDataURL(file);
-    }
-});
-
-function removeImage() {
-    document.getElementById('image').value = '';
-    document.getElementById('imagePreview').innerHTML = `
-        <i class="fas fa-cloud-upload-alt text-muted mb-2" style="font-size: 2rem;"></i>
-        <p class="text-muted mb-2">Drag & drop gambar atau klik untuk browse</p>
-        <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('image').click()">
-            <i class="fas fa-folder-open me-2"></i>Pilih Gambar
-        </button>
-        <small class="d-block text-muted mt-2">Format: JPG, PNG, GIF (Max: 2MB)</small>
-    `;
-}
-
-// Drag and drop functionality
-const imagePreview = document.getElementById('imagePreview');
-
-imagePreview.addEventListener('dragover', function(e) {
-    e.preventDefault();
-    this.classList.add('dragover');
-});
-
-imagePreview.addEventListener('dragleave', function(e) {
-    e.preventDefault();
-    this.classList.remove('dragover');
-});
-
-imagePreview.addEventListener('drop', function(e) {
-    e.preventDefault();
-    this.classList.remove('dragover');
-    
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-        document.getElementById('image').files = files;
-        document.getElementById('image').dispatchEvent(new Event('change'));
+        reader.readAsDataURL(this.files[0]);
     }
 });
 
 // Save draft functionality
 function saveDraft() {
-    const form = document.getElementById('galleryForm');
-    const publishedCheckbox = document.getElementById('is_published');
-    publishedCheckbox.checked = false;
-    form.submit();
+    document.getElementById('is_published').checked = false;
+    document.getElementById('galleryForm').submit();
 }
 
 // Form validation
@@ -441,4 +371,4 @@ document.getElementById('galleryForm').addEventListener('submit', function(e) {
     }
 });
 </script>
-@endsectionion
+@endsection
