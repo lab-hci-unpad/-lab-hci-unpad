@@ -33,22 +33,22 @@ class DashboardController extends Controller
             $users_by_month[$i] = 0;
         }
         
-        // Get actual data
-        $newsData = News::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+        // Get actual data (Fixed for PostgreSQL)
+        $newsData = News::selectRaw('EXTRACT(MONTH FROM created_at) as month, COUNT(*) as count')
             ->whereYear('created_at', date('Y'))
-            ->groupBy('month')
+            ->groupByRaw('EXTRACT(MONTH FROM created_at)')
             ->pluck('count', 'month')
             ->toArray();
             
-        $usersData = User::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+        $usersData = User::selectRaw('EXTRACT(MONTH FROM created_at) as month, COUNT(*) as count')
             ->whereYear('created_at', date('Y'))
-            ->groupBy('month')
+            ->groupByRaw('EXTRACT(MONTH FROM created_at)')
             ->pluck('count', 'month')
             ->toArray();
         
-        // Merge with initialized array
-        $news_by_month = array_merge($news_by_month, $newsData);
-        $users_by_month = array_merge($users_by_month, $usersData);
+        // Replace initialized array values with actual data to preserve keys
+        $news_by_month = array_replace($news_by_month, $newsData);
+        $users_by_month = array_replace($users_by_month, $usersData);
 
         $news_status_data = [
             ['id' => 'Published', 'value' => News::where('status', 'published')->count()],
