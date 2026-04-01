@@ -76,203 +76,164 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Active Master Students -->
+            <!-- Sarjana Students -->
             <div class="card border-0 shadow-sm mb-5">
                 <div class="card-body p-5">
-                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseMagisterAktif" aria-expanded="false">
-                        <span><i class="fas fa-graduation-cap text-primary-custom me-2"></i>Mahasiswa Program Magister Aktif</span>
+                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseSarjana" aria-expanded="false">
+                        <span><i class="fas fa-graduation-cap text-primary-custom me-2"></i>Mahasiswa Program Sarjana</span>
                         <svg class="collapse-icon text-muted" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </h3>
-                    <div class="collapse" id="collapseMagisterAktif">
+                    <div class="collapse" id="collapseSarjana">
                         <div class="table-responsive mt-3">
-                        <table class="table table-hover" id="magisterAktifTable">
+                        <table class="table table-hover" id="sarjanaTable">
                             <thead class="table-light">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col" width="10%">#</th>
+                                    <th scope="col" width="70%">Nama</th>
+                                    <th scope="col" width="20%">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
-                                $magisterAktifStudents = [
-                                    'Tsabita Angger Pangestuti, drg'
+                                $sarjanaStudents = [
+                                    ['name' => 'Ardes Zubka Putra', 'status' => 'Aktif'],
+                                    ['name' => 'Chienta Fleury', 'status' => 'Aktif'],
+                                    ['name' => 'Dimas Falah Arianto', 'status' => 'Aktif'],
+                                    ['name' => 'Salsabila Dean Putri (Prodi Bisnis Digital)', 'status' => 'Aktif'],
+                                    ['name' => 'Michelle Patricia Jakfar (Prodi Kedokteran Gigi)', 'status' => 'Aktif'],
+                                    ['name' => 'Abdurrahman Hafizh (Prodi Kedokteran Gigi)', 'status' => 'Aktif'],
+                                    ['name' => 'Darren Christian Liharja', 'status' => 'Aktif'],
+                                    ['name' => 'Muhammad Satria Dharma (Asisten Dosen)', 'status' => 'Aktif'],
+                                    ['name' => 'Jason Natanael Kristianto', 'status' => 'Aktif'],
+                                    ['name' => 'Oriex Mawan Junnior', 'status' => 'Aktif'],
+                                    ['name' => 'Agra Palasara', 'status' => 'Aktif'],
+                                    ['name' => 'Faizzani Zingsky Pratiwi', 'status' => 'Aktif'],
+                                    ['name' => 'Muhammad Wildan Kamil', 'status' => 'Aktif'],
+                                    ['name' => 'Muhammad Rumi Rifai', 'status' => 'Aktif'],
+                                    ['name' => 'Tegar Muhammad Rizki', 'status' => 'Aktif'],
+                                    ['name' => 'Riva Farabi, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Syafira Predeisyanti, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Gilang Nusantara Barry Putra, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Hasna Karimah, S.Kom, MT.', 'status' => 'Lulus'],
+                                    ['name' => 'Dzakia Rayhana, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Reynaldi Noer Rizki, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Syafira Fitra Annisa, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Zaenal Muttaqien, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Kevin Andrew Agustinus J Waworuntu, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Haris Putratama, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Bening Kusumahati, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Alaa Illiyya, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Agnes Hata, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Raditya Prirahmadian, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Beryl Cleary Hermanto, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Raihan Luthfiandi Muhammad, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Ilham Kusuma Aji, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Fadhli Hibatul Haqqi, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Fakhri Fajar Ramadhan, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Amir Salim, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Hudzaifah Al Mutaz Billah, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Prames Ray Lapian, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Stevanus Felixiano, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Marciano Lie, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Hanif Fathanmubin, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Wafa Tsabita, S.Kom', 'status' => 'Lulus'],
+                                    ['name' => 'Guntur Eka Putra, S.Kom', 'status' => 'Lulus']
                                 ];
                                 @endphp
                                 
-                                @foreach($magisterAktifStudents as $index => $student)
+                                @foreach($sarjanaStudents as $index => $student)
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
-                                    <td>{{ $student }}</td>
-                                    <td><span class="badge" style="background-color: #841818;">Aktif</span></td>
+                                    <td>{{ $student['name'] }}</td>
+                                    <td><span class="badge" style="background-color: {{ $student['status'] == 'Aktif' ? '#841818' : '#2c3e50' }};">{{ $student['status'] }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div id="magisterAktifPagination" class="d-flex justify-content-center mt-3"></div>
+                        <div id="sarjanaPagination" class="d-flex justify-content-center mt-3"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Active Students -->
+            <!-- Magister Students -->
             <div class="card border-0 shadow-sm mb-5">
                 <div class="card-body p-5">
-                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseSarjanaAktif" aria-expanded="false">
-                        <span><i class="fas fa-graduation-cap text-primary-custom me-2"></i>Mahasiswa Program Sarjana Aktif</span>
+                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseMagister" aria-expanded="false">
+                        <span><i class="fas fa-user-graduate text-primary-custom me-2"></i>Mahasiswa Program Magister</span>
                         <svg class="collapse-icon text-muted" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </h3>
-                    <div class="collapse" id="collapseSarjanaAktif">
+                    <div class="collapse" id="collapseMagister">
                         <div class="table-responsive mt-3">
-                        <table class="table table-hover" id="activeTable">
+                        <table class="table table-hover" id="magisterTable">
                             <thead class="table-light">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col" width="10%">#</th>
+                                    <th scope="col" width="70%">Nama</th>
+                                    <th scope="col" width="20%">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
-                                $activeStudents = [
-                                    'Ardes Zubka Putra',
-                                    'Chienta Fleury',
-                                    'Dimas Falah Arianto',
-                                    'Salsabila Dean Putri (Prodi Bisnis Digital)',
-                                    'Michelle Patricia Jakfar (Prodi Kedokteran Gigi)',
-                                    'Abdurrahman Hafizh (Prodi Kedokteran Gigi)',
-                                    'Darren Christian Liharja',
-                                    'Muhammad Satria Dharma (Asisten Dosen)',
-                                    'Jason Natanael Kristianto',
-                                    'Oriex Mawan Junnior',
-                                    'Agra Palasara',
-                                    'Faizzani Zingsky Pratiwi',
-                                    'Muhammad Wildan Kamil',
-                                    'Muhammad Rumi Rifai',
-                                    'Tegar Muhammad Rizki'
+                                $magisterStudents = [
+                                    ['name' => 'Tsabita Angger Pangestuti, drg', 'status' => 'Aktif']
                                 ];
                                 @endphp
                                 
-                                @foreach($activeStudents as $index => $student)
+                                @foreach($magisterStudents as $index => $student)
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
-                                    <td>{{ $student }}</td>
-                                    <td><span class="badge" style="background-color: #841818;">Aktif</span></td>
+                                    <td>{{ $student['name'] }}</td>
+                                    <td><span class="badge" style="background-color: {{ $student['status'] == 'Aktif' ? '#841818' : '#2c3e50' }};">{{ $student['status'] }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div id="activePagination" class="d-flex justify-content-center mt-3"></div>
+                        <div id="magisterPagination" class="d-flex justify-content-center mt-3"></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Doktoral Alumni Table -->
+            <!-- Doktoral Students -->
             <div class="card border-0 shadow-sm mb-5">
                 <div class="card-body p-5">
-                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseDoktoralAlumni" aria-expanded="false">
-                        <span><i class="fas fa-user-graduate text-primary-custom me-2"></i>Mahasiswa Program Doktoral yang Telah Lulus</span>
+                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseDoktoral" aria-expanded="false">
+                        <span><i class="fas fa-user-tie text-primary-custom me-2"></i>Mahasiswa Program Doktoral</span>
                         <svg class="collapse-icon text-muted" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </h3>
-                    <div class="collapse" id="collapseDoktoralAlumni">
+                    <div class="collapse" id="collapseDoktoral">
                         <div class="table-responsive mt-3">
-                        <table class="table table-hover" id="doktoralAlumniTable">
+                        <table class="table table-hover" id="doktoralTable">
                             <thead class="table-light">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col" width="10%">#</th>
+                                    <th scope="col" width="70%">Nama</th>
+                                    <th scope="col" width="20%">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
-                                $doktoralAlumni = [
-                                    'Kolonel Laut (K/W) Dr. drg. Zelvya Purnama Rika, Sp.KGA, FICD, CIQnR, CIQaR (Fakultas Kedokteran Unpad)'
+                                $doktoralStudents = [
+                                    ['name' => 'Kolonel Laut (K/W) Dr. drg. Zelvya Purnama Rika, Sp.KGA, FICD, CIQnR, CIQaR (Fakultas Kedokteran Unpad)', 'status' => 'Lulus']
                                 ];
                                 @endphp
                                 
-                                @foreach($doktoralAlumni as $index => $alumnus)
+                                @foreach($doktoralStudents as $index => $student)
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
-                                    <td>{{ $alumnus }}</td>
-                                    <td><span class="badge" style="background-color: #841818;">Alumni</span></td>
+                                    <td>{{ $student['name'] }}</td>
+                                    <td><span class="badge" style="background-color: {{ $student['status'] == 'Aktif' ? '#841818' : '#2c3e50' }};">{{ $student['status'] }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div id="doktoralAlumniPagination" class="d-flex justify-content-center mt-3"></div>
+                        <div id="doktoralPagination" class="d-flex justify-content-center mt-3"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Alumni Table -->
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-5">
-                    <h3 class="mb-4 d-flex justify-content-between align-items-center collapsed" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseSarjanaAlumni" aria-expanded="false">
-                        <span><i class="fas fa-user-graduate text-primary-custom me-2"></i>Mahasiswa Program Sarjana yang Telah Lulus</span>
-                        <svg class="collapse-icon text-muted" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </h3>
-                    <div class="collapse" id="collapseSarjanaAlumni">
-                        <div class="table-responsive mt-3">
-                        <table class="table table-hover" id="alumniTable">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                $alumni = [
-                                    'Riva Farabi, S.Kom',
-                                    'Syafira Predeisyanti, S.Kom',
-                                    'Gilang Nusantara Barry Putra, S.Kom',
-                                    'Hasna Karimah, S.Kom, MT.',
-                                    'Dzakia Rayhana, S.Kom',
-                                    'Reynaldi Noer Rizki, S.Kom',
-                                    'Syafira Fitra Annisa, S.Kom',
-                                    'Zaenal Muttaqien, S.Kom',
-                                    'Kevin Andrew Agustinus J Waworuntu, S.Kom',
-                                    'Haris Putratama, S.Kom',
-                                    'Bening Kusumahati, S.Kom',
-                                    'Alaa Illiyya, S.Kom',
-                                    'Agnes Hata, S.Kom',
-                                    'Raditya Prirahmadian, S.Kom',
-                                    'Beryl Cleary Hermanto, S.Kom',
-                                    'Raihan Luthfiandi Muhammad, S.Kom',
-                                    'Ilham Kusuma Aji, S.Kom',
-                                    'Fadhli Hibatul Haqqi, S.Kom',
-                                    'Fakhri Fajar Ramadhan, S.Kom',
-                                    'Amir Salim, S.Kom',
-                                    'Hudzaifah Al Mutaz Billah, S.Kom',
-                                    'Prames Ray Lapian, S.Kom',
-                                    'Stevanus Felixiano, S.Kom',
-                                    'Marciano Lie, S.Kom',
-                                    'Hanif Fathanmubin, S.Kom',
-                                    'Wafa Tsabita, S.Kom',
-                                    'Guntur Eka Putra, S.Kom'
-                                ];
-                                @endphp
-                                
-                                @foreach($alumni as $index => $alumnus)
-                                <tr>
-                                    <th scope="row">{{ $index + 1 }}</th>
-                                    <td>{{ $alumnus }}</td>
-                                    <td><span class="badge" style="background-color: #841818;">Alumni</span></td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div id="alumniPagination" class="d-flex justify-content-center mt-3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div>
     </div>
 </div>
 
@@ -478,10 +439,9 @@ document.addEventListener("DOMContentLoaded", function() {
         updatePagination();
     }
 
-    setupPagination('magisterAktifTable', 'magisterAktifPagination', 10);
-    setupPagination('activeTable', 'activePagination', 10);
-    setupPagination('doktoralAlumniTable', 'doktoralAlumniPagination', 10);
-    setupPagination('alumniTable', 'alumniPagination', 10);
+    setupPagination('sarjanaTable', 'sarjanaPagination', 10);
+    setupPagination('magisterTable', 'magisterPagination', 10);
+    setupPagination('doktoralTable', 'doktoralPagination', 10);
 });
 </script>
 

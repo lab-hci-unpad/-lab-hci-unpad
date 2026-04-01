@@ -12,6 +12,26 @@ class PublicationSeeder extends Seeder
         // Clear existing data
         Publication::truncate();
         
+        // 2025 Publications
+        Publication::create([
+            'title'   => 'User Interaction Behavior Analysis for Cognitive Load Detection in Online Learning Processes',
+            'authors' => 'Mira Suryani, Harry Budi Santoso, Rizal Fathoni Aji, Setiawan Hadi, Martin Schrepp',
+            'venue'   => 'Lecture Notes in Computer Science (Q2)',
+            'year'    => '2025',
+            'type'    => 'journal',
+            'volume'  => '15794',
+        ]);
+
+        Publication::create([
+            'title'   => 'Uji Fungsional, Ergonomis, dan Usabilitas Dental Hypnosis Monitoring Device dalam Mengelola Kecemasan Pasien Selama Prosedur Perawatan Gigi: Studi Experimental',
+            'authors' => 'Akmal Muttaqin, Gilang Yubiliana, Mira Suryani',
+            'venue'   => 'Padjadjaran Journal of Dental Researchers and Students (SINTA 3)',
+            'year'    => '2025',
+            'type'    => 'journal',
+            'volume'  => '9',
+            'pages'   => 'No. 1',
+        ]);
+
         // 2024 Publications
         Publication::create([
             'title' => 'An Initial User Model Design For Adaptive Interface Development In Learning Management System Based On Cognitive Load',
