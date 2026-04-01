@@ -41,7 +41,7 @@
                 <div class="content">
                     <p class="lead">{{ $news->excerpt }}</p>
                     <div class="mt-4">
-                        {!! nl2br(e($news->content)) !!}
+                        {!! $news->content !!}
                     </div>
                 </div>
             </article>
