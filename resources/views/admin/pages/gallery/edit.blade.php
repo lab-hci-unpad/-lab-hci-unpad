@@ -43,7 +43,7 @@
                         <label for="image" class="form-label">Gambar</label>
                         @if($gallery->image)
                             <div class="mb-2">
-                                <img src="{{ asset('storage/' . $gallery->image) }}" alt="Current image" class="img-thumbnail" style="max-height: 200px;">
+                                <img src="{{ storage_image_url($gallery->image) }}" alt="Current image" class="img-thumbnail" style="max-height: 200px;">
                                 <p class="small text-muted">Gambar saat ini</p>
                             </div>
                         @endif

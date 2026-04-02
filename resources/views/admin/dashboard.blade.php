@@ -289,7 +289,7 @@
                 @forelse($recent_news as $news)
                 <div class="news-item {{ !$loop->last ? 'border-bottom' : '' }}">
                     <div class="d-flex align-items-center">
-                        <img src="{{ asset($news->featured_image) }}" alt="{{ $news->title }}" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
+                        <img src="{{ storage_image_url($news->featured_image) }}" alt="{{ $news->title }}" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
                         <div class="flex-grow-1">
                             <h6 class="mb-1 fw-semibold">{{ Str::limit($news->title, 50) }}</h6>
                             <p class="text-muted small mb-2">{{ Str::limit($news->excerpt, 80) }}</p>

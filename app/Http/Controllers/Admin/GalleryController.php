@@ -61,7 +61,7 @@ class GalleryController extends Controller
         $data['is_published'] = $request->has('is_published');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('gallery', 'public');
+            $data['image'] = $request->file('image')->store('gallery');
         }
 
         Gallery::create($data);
@@ -99,9 +99,9 @@ class GalleryController extends Controller
 
         if ($request->hasFile('image')) {
             if ($gallery->image) {
-                Storage::disk('public')->delete($gallery->image);
+                Storage::delete($gallery->image);
             }
-            $data['image'] = $request->file('image')->store('gallery', 'public');
+            $data['image'] = $request->file('image')->store('gallery');
         }
 
         $gallery->update($data);
@@ -112,7 +112,7 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         if ($gallery->image) {
-            Storage::disk('public')->delete($gallery->image);
+            Storage::delete($gallery->image);
         }
         
         $gallery->delete();

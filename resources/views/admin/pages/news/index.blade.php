@@ -148,7 +148,7 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration + ($news->currentPage() - 1) * $news->perPage() }}</td>
                         <td>
-                            <img src="{{ asset($item->featured_image) }}" alt="{{ $item->title }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                            <img src="{{ storage_image_url($item->featured_image) }}" alt="{{ $item->title }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
                         </td>
                         <td>
                             <h6 class="mb-1">{{ $item->title }}</h6>

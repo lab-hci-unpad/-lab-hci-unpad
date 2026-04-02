@@ -22,7 +22,7 @@
         @forelse($news as $item)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card border-0 shadow-sm h-100">
-                <img src="{{ asset($item->featured_image) }}" class="card-img-top" alt="{{ $item->title }}" style="height: 200px; object-fit: cover;">
+                <img src="{{ storage_image_url($item->featured_image) }}" class="card-img-top" alt="{{ $item->title }}" style="height: 200px; object-fit: cover;">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p class="card-text text-muted flex-grow-1">{{ $item->excerpt }}</p>

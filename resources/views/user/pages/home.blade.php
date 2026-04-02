@@ -87,7 +87,7 @@
         <div class="row align-items-center mb-5 {{ $index % 2 == 0 ? '' : 'flex-row-reverse' }}">
             <!-- Image Column -->
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ asset($news->featured_image) }}" alt="{{ $news->title }}" class="img-fluid rounded shadow" style="height: 300px; width: 100%; object-fit: cover;">
+                <img src="{{ storage_image_url($news->featured_image) }}" alt="{{ $news->title }}" class="img-fluid rounded shadow" style="height: 300px; width: 100%; object-fit: cover;">
             </div>
             
             <!-- Content Column -->

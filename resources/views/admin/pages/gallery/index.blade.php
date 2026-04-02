@@ -155,7 +155,7 @@
                         <td class="text-center">{{ $loop->iteration + ($galleries->currentPage() - 1) * $galleries->perPage() }}</td>
                         <td>
                             @if($item->image)
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                                <img src="{{ storage_image_url($item->image) }}" alt="{{ $item->title }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
                             @else
                                 <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
                                     <i class="fas fa-image text-muted"></i>
