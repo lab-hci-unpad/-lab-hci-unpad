@@ -45,7 +45,7 @@
             @forelse($projects as $project)
             <div class="col-md-6 col-lg-4">
                 <div class="card border-0 shadow-sm h-100">
-                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px; background-image: url('{{ $project->image ? asset('storage/' . $project->image) : '' }}'); background-size: cover; background-position: center;">
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px; background-image: url('{{ $project->image ? storage_image_url($project->image) : '' }}'); background-size: cover; background-position: center;">
                         @if(!$project->image)
                             <i class="fas fa-image text-muted" style="font-size: 3rem;"></i>
                         @endif

@@ -77,7 +77,7 @@
                         @if($news->featured_image)
                         <div class="mt-3">
                             <p class="mb-2"><strong>Gambar Saat Ini:</strong></p>
-                            <img src="{{ asset($news->featured_image) }}" alt="Current featured image" class="img-thumbnail" style="max-width: 200px;">
+                            <img src="{{ storage_image_url($news->featured_image) }}" alt="Current featured image" class="img-thumbnail" style="max-width: 200px;">
                         </div>
                         @endif
                     </div>
@@ -96,7 +96,7 @@
                             <div class="row g-2">
                                 @foreach($news->gallery_images as $image)
                                 <div class="col-md-3">
-                                    <img src="{{ asset($image) }}" alt="Gallery image" class="img-thumbnail w-100" style="height: 100px; object-fit: cover;">
+                                    <img src="{{ storage_image_url($image) }}" alt="Gallery image" class="img-thumbnail w-100" style="height: 100px; object-fit: cover;">
                                 </div>
                                 @endforeach
                             </div>

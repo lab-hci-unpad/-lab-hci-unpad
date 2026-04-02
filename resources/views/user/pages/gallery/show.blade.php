@@ -23,7 +23,7 @@
                     <div class="col-lg-6">
                         <div class="sticky-top" style="top: 100px;">
                             @if($gallery->image)
-                                <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}" class="img-fluid rounded shadow-sm">
+                                <img src="{{ storage_image_url($gallery->image) }}" alt="{{ $gallery->title }}" class="img-fluid rounded shadow-sm">
                             @else
                                 <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 400px;">
                                     <i class="fas fa-image text-muted" style="font-size: 4rem;"></i>
