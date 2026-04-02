@@ -21,7 +21,14 @@
     <!-- Featured Image -->
     <div class="row mb-5">
         <div class="col-12">
-            <img src="{{ asset($news->featured_image) }}" alt="{{ $news->title }}" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+            @if($news->featured_image)
+            <img src="{{ storage_image_url($news->featured_image) }}" alt="{{ $news->title }}" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+            @else
+            <div class="bg-light d-flex flex-column align-items-center justify-content-center rounded" style="height: 300px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2807/2807882.png" alt="No Image" style="width: 80px; height: 80px; opacity: 0.5; margin-bottom: 15px;">
+                <span class="text-muted">Foto tidak tersedia</span>
+            </div>
+            @endif
         </div>
     </div>
     
@@ -57,8 +64,7 @@
                 <div class="row g-2">
                     @foreach($news->gallery_images as $image)
                     <div class="col-6">
-                        <img src="{{ asset($image) }}" alt="Gallery Image" class="img-fluid rounded shadow-sm" style="height: 120px; object-fit: cover; cursor: pointer;" onclick="showImageModal('{{ asset($image) }}')">
-                    </div>
+                        <img src="{{ storage_image_url($image) }}" alt="Gallery Image" class="img-fluid rounded shadow-sm" style="height: 120px; object-fit: cover; cursor: pointer;" onclick="showImageModal('{{ storage_image_url($image) }}')">                    </div>
                     @endforeach
                 </div>
             </div>

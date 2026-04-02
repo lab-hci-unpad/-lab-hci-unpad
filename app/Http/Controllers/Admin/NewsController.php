@@ -38,7 +38,7 @@ class NewsController extends Controller
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
             'content' => 'required|string',
-            'featured_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'gallery_images.*' => 'image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required|in:draft,published',
             'published_at' => 'required|date'
@@ -46,14 +46,17 @@ class NewsController extends Controller
 
         $slug = Str::slug($request->title);
         
-        // Handle featured image
-        $featuredImagePath = $request->file('featured_image')->store('news/featured', 'public');
+        // Handle featured image (opsional)
+        $featuredImagePath = null;
+        if ($request->hasFile('featured_image')) {
+            $featuredImagePath = $request->file('featured_image')->store('news/featured');
+        }
         
         // Handle gallery images
         $galleryImages = [];
         if ($request->hasFile('gallery_images')) {
             foreach ($request->file('gallery_images') as $image) {
-                $galleryImages[] = $image->store('news/gallery', 'public');
+                $galleryImages[] = $image->store('news/gallery');
             }
         }
 
@@ -62,8 +65,8 @@ class NewsController extends Controller
             'slug' => $slug,
             'excerpt' => $request->excerpt,
             'content' => $request->content,
-            'featured_image' => 'storage/' . $featuredImagePath,
-            'gallery_images' => $galleryImages ? array_map(fn($img) => 'storage/' . $img, $galleryImages) : null,
+            'featured_image' => $featuredImagePath,
+            'gallery_images' => $galleryImages ?: null,
             'status' => $request->status,
             'published_at' => $request->published_at
         ]);
@@ -99,31 +102,29 @@ class NewsController extends Controller
 
         // Handle featured image update - only if new file uploaded
         if ($request->hasFile('featured_image')) {
-            // Delete old image if exists
-            if ($news->featured_image && file_exists(public_path($news->featured_image))) {
-                unlink(public_path($news->featured_image));
+            // Delete old image from default disk if exists
+            if ($news->featured_image) {
+                Storage::delete($news->featured_image);
             }
             
-            $featuredImagePath = $request->file('featured_image')->store('news/featured', 'public');
-            $data['featured_image'] = 'storage/' . $featuredImagePath;
+            $featuredImagePath = $request->file('featured_image')->store('news/featured');
+            $data['featured_image'] = $featuredImagePath;
         }
 
         // Handle gallery images update - only if new files uploaded
         if ($request->hasFile('gallery_images')) {
-            // Delete old gallery images if exist
+            // Delete old gallery images from default disk if exist
             if ($news->gallery_images) {
                 foreach ($news->gallery_images as $oldImage) {
-                    if (file_exists(public_path($oldImage))) {
-                        unlink(public_path($oldImage));
-                    }
+                    Storage::delete($oldImage);
                 }
             }
             
             $galleryImages = [];
             foreach ($request->file('gallery_images') as $image) {
-                $galleryImages[] = $image->store('news/gallery', 'public');
+                $galleryImages[] = $image->store('news/gallery');
             }
-            $data['gallery_images'] = array_map(fn($img) => 'storage/' . $img, $galleryImages);
+            $data['gallery_images'] = $galleryImages;
         }
 
         $news->update($data);

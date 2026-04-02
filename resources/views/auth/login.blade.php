@@ -213,18 +213,7 @@
                     @endif
                     
                     <div class="mb-3 text-center">
-                        <ul class="nav nav-pills justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('login') }}">
-                                    <i class="fas fa-sign-in-alt me-2"></i>Masuk
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">
-                                    <i class="fas fa-user-plus me-2"></i>Daftar
-                                </a>
-                            </li>
-                        </ul>
+                        <h6 class="text-muted"><i class="fas fa-sign-in-alt me-2"></i>Masuk ke Akun</h6>
                     </div>
                     
                     <form method="POST" action="{{ route('login') }}">
@@ -259,7 +248,6 @@
                         </button>
                         
                         <div class="text-center">
-                            <p class="mb-2">Belum punya akun? <a href="{{ route('register') }}" class="text-decoration-none" style="color: #841818;">Daftar di sini</a></p>
                             <p class="mb-0">Atau masuk dengan</p>
                         </div>
                         
