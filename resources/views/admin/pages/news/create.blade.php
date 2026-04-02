@@ -61,9 +61,9 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="featured_image" class="form-label">Featured Image <span class="text-danger">*</span></label>
-                        <input type="file" class="form-control @error('featured_image') is-invalid @enderror" id="featured_image" name="featured_image" accept="image/*" required>
-                        <div class="form-text">Upload gambar utama untuk berita (JPG, PNG, max 2MB)</div>
+                        <label for="featured_image" class="form-label">Featured Image <span class="text-muted">(Opsional)</span></label>
+                        <input type="file" class="form-control @error('featured_image') is-invalid @enderror" id="featured_image" name="featured_image" accept="image/*">
+                        <div class="form-text">Upload gambar utama untuk berita (JPG, PNG, max 2MB). Jika tidak diisi, berita akan tampil tanpa gambar.</div>
                         @error('featured_image')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
