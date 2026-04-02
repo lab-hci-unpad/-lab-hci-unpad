@@ -38,7 +38,7 @@ class NewsController extends Controller
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
             'content' => 'required|string',
-            'featured_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'gallery_images.*' => 'image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required|in:draft,published',
             'published_at' => 'required|date'
@@ -46,8 +46,11 @@ class NewsController extends Controller
 
         $slug = Str::slug($request->title);
         
-        // Handle featured image
-        $featuredImagePath = $request->file('featured_image')->store('news/featured');
+        // Handle featured image (opsional)
+        $featuredImagePath = null;
+        if ($request->hasFile('featured_image')) {
+            $featuredImagePath = $request->file('featured_image')->store('news/featured');
+        }
         
         // Handle gallery images
         $galleryImages = [];

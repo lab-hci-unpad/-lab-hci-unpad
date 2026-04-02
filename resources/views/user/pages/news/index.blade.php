@@ -22,7 +22,14 @@
         @forelse($news as $item)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card border-0 shadow-sm h-100">
+                @if($item->featured_image)
                 <img src="{{ storage_image_url($item->featured_image) }}" class="card-img-top" alt="{{ $item->title }}" style="height: 200px; object-fit: cover;">
+                @else
+                <div class="card-img-top bg-light d-flex flex-column align-items-center justify-content-center" style="height: 200px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2807/2807882.png" alt="No Image" style="width: 50px; height: 50px; opacity: 0.5; margin-bottom: 10px;">
+                    <span class="text-muted small">Foto tidak tersedia</span>
+                </div>
+                @endif
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p class="card-text text-muted flex-grow-1">{{ $item->excerpt }}</p>
