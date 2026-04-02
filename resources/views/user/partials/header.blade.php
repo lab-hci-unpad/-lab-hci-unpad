@@ -85,14 +85,6 @@
                         </li>
                     </ul>
                 </li>
-                @else
-                <li class="nav-item ms-2">
-                    <a class="btn btn-warning text-white px-3 py-2" href="{{ route('login') }}" style="background-color: #E0BB20; border: none;">Login</a>
-                </li>
-                
-                <li class="nav-item ms-2">
-                    <a class="btn btn-warning text-white px-3 py-2" href="{{ route('register') }}" style="background-color: #841818; border: none;">Daftar</a>
-                </li>
                 @endauth
             </ul>
         </div>

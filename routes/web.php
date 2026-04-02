@@ -43,8 +43,9 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 // Auth Routes
 Route::get('/login', [App\Http\Controllers\Auth\AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\AuthController::class, 'login']);
-Route::get('/register', [App\Http\Controllers\Auth\AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [App\Http\Controllers\Auth\AuthController::class, 'register']);
+// Route register dinonaktifkan - akses hanya untuk internal via admin panel
+// Route::get('/register', [App\Http\Controllers\Auth\AuthController::class, 'showRegister'])->name('register');
+// Route::post('/register', [App\Http\Controllers\Auth\AuthController::class, 'register']);
 Route::post('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout'])->name('logout');
 
 // Google OAuth Routes
