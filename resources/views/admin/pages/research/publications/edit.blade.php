@@ -76,7 +76,6 @@
                             <option value="">Pilih Tipe</option>
                             <option value="journal" {{ old('type', $publication->type) == 'journal' ? 'selected' : '' }}>Journal</option>
                             <option value="conference" {{ old('type', $publication->type) == 'conference' ? 'selected' : '' }}>Conference</option>
-                            <option value="workshop" {{ old('type', $publication->type) == 'workshop' ? 'selected' : '' }}>Workshop</option>
                             <option value="book" {{ old('type', $publication->type) == 'book' ? 'selected' : '' }}>Book</option>
                         </select>
                         @error('type')
