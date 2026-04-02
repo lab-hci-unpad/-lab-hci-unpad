@@ -51,9 +51,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="journal" class="form-label fw-semibold">Jurnal/Konferensi <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control @error('journal') is-invalid @enderror" id="journal" name="journal" value="{{ old('journal') }}" placeholder="Nama jurnal atau konferensi" required>
-                                @error('journal')
+                                <label for="venue" class="form-label fw-semibold">Jurnal/Konferensi <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('venue') is-invalid @enderror" id="venue" name="venue" value="{{ old('venue') }}" placeholder="Nama jurnal atau konferensi" required>
+                                @error('venue')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -75,7 +75,6 @@
                             <option value="">Pilih Tipe</option>
                             <option value="journal" {{ old('type') == 'journal' ? 'selected' : '' }}>Journal</option>
                             <option value="conference" {{ old('type') == 'conference' ? 'selected' : '' }}>Conference</option>
-                            <option value="workshop" {{ old('type') == 'workshop' ? 'selected' : '' }}>Workshop</option>
                             <option value="book" {{ old('type') == 'book' ? 'selected' : '' }}>Book</option>
                         </select>
                         @error('type')
