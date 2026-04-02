@@ -243,7 +243,7 @@
             <p>Total Berita</p>
         </div>
     </div>
-    
+
     <div class="col-md-6 col-xl-3">
         <div class="card stats-card">
             <i class="fas fa-eye mb-3" style="font-size: 2.5rem; opacity: 0.8;"></i>
@@ -251,7 +251,7 @@
             <p>Berita Published</p>
         </div>
     </div>
-    
+
     <div class="col-md-6 col-xl-3">
         <div class="card stats-card">
             <i class="fas fa-images mb-3" style="font-size: 2.5rem; opacity: 0.8;"></i>
@@ -259,7 +259,7 @@
             <p>Gallery Items</p>
         </div>
     </div>
-    
+
     <div class="col-md-6 col-xl-3">
         <div class="card stats-card">
             <i class="fas fa-users mb-3" style="font-size: 2.5rem; opacity: 0.8;"></i>
@@ -289,7 +289,7 @@
                 @forelse($recent_news as $news)
                 <div class="news-item {{ !$loop->last ? 'border-bottom' : '' }}">
                     <div class="d-flex align-items-center">
-                        <img src="{{ asset($news->featured_image) }}" alt="{{ $news->title }}" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
+                        <img src="{{ $news->featured_image ? Storage::url($news->featured_image) : null }}" alt="{{ $news->title }}" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
                         <div class="flex-grow-1">
                             <h6 class="mb-1 fw-semibold">{{ Str::limit($news->title, 50) }}</h6>
                             <p class="text-muted small mb-2">{{ Str::limit($news->excerpt, 80) }}</p>
@@ -316,7 +316,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Recent Users -->
     <div class="col-lg-4">
         <div class="card activity-card">
@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'all 0.6s ease';
-            
+
             setTimeout(() => {
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
